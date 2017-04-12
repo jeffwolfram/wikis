@@ -1,0 +1,18 @@
+<br>
+<h1 class="text-center">Blocipedia: Social, Markdown Wikis</h1>
+<div class="jumbotron">
+  <div class="text-center">
+  <h2>Create and share Markdown Wikis</h2>
+  <% unless user_signed_in? %>
+  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
+  <% end %> 
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 text-center">
+<p>Create as many public wikis as you want</p>
+</div>
+<div class="col-md-6 text-center">
+<p>Create Private Wikis!</p>
+</div>
+</div>
