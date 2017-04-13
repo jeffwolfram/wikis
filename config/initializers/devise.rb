@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '012758599938441a16a86f839f88d544b83e14bd46bc3ee663f662810fd94a657b87bf4cc1436034f7abab1286696007713347571fa8131730047d33d63b2122'
+  config.secret_key = '012758599938441a16a86f839f88d544b83e14bd46bc3ee663f662810fd94a657b87bf4cc1436034f7abab1286696007713347571fa8131730047d33d63b2122'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -15,10 +15,10 @@ Devise.setup do |config|
   config.mailer_sender = 'jeffwolfram@gmail.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+   config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
+   config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -108,10 +108,10 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'dc80e685d6e7d9b3950b3ef23ebd2dbf60f8937cf2b28f9bb7478ef291e3241a3a79b67641cf8dee4799a773923585edfc33b31c9658738589cc65b5b5bdaa99'
+  config.pepper = 'dc80e685d6e7d9b3950b3ef23ebd2dbf60f8937cf2b28f9bb7478ef291e3241a3a79b67641cf8dee4799a773923585edfc33b31c9658738589cc65b5b5bdaa99'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+   config.send_email_changed_notification = false
 
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
@@ -205,7 +205,7 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
-  # When set to false, does not sign a user in automatically after their password is
+# When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
 
