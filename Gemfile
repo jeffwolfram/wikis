@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'figaro'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
