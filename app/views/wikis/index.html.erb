@@ -1,11 +1,10 @@
 <h1>Wikis</h1>
+<div class="col-md-4 pull-right">
+  <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
+</div>
 <div class="row">
   <div class="col-md-8">
 
     <% @wikis.each do |wiki| %>
     <%= render @wikis %>
     <% end %>
-    <div class="col-md-4">
-      <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
-
-      
