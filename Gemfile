@@ -11,7 +11,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'listen'
-  gem 'pry-rails'
+  # gem 'pry-rails'
 
 end
 
@@ -33,5 +33,5 @@ group :development, :test do
   gem 'shoulda'
   gem 'faker'
   gem 'factory_girl_rails'
-  gem 'pry-rails'
+  # gem 'pry-rails'
 end
