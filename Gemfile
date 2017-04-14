@@ -33,5 +33,9 @@ group :development, :test do
   gem 'shoulda'
   gem 'faker'
   gem 'factory_girl_rails'
+
   # gem 'pry-rails'
+
+  gem 'sqlite3'
+
 end
