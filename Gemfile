@@ -24,6 +24,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'figaro'
+gem 'pundit'
 
 
 group :development, :test do
@@ -34,6 +35,8 @@ group :development, :test do
   gem 'shoulda'
   gem 'faker'
   gem 'factory_girl_rails'
+
+  gem 'capybara'
 
   # gem 'pry-rails'
 
