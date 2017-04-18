@@ -1,12 +1,15 @@
 class WikisController < ApplicationController
   def index
     @wikis = Wiki.all
+    authorize @wikis
+    # policy_scope(Wiki)
   end
   def show
     @wiki = Wiki.find(params[:id])
   end
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
   def create
     @wiki = Wiki.new(wiki_params)

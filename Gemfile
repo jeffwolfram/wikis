@@ -24,6 +24,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'figaro'
+gem 'pundit'
 
 
 group :development, :test do
@@ -37,6 +38,6 @@ group :development, :test do
 
   # gem 'pry-rails'
 
-  gem 'sqlite3'
+
 
 end
