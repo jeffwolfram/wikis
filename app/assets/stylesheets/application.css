@@ -19,3 +19,9 @@
     margin: 5px;
 
   }
+.btn {
+  z-index: 100;
+}
+.index-container {
+  margin-left:4%;
+}

@@ -14,7 +14,8 @@
     <ul class="nav nav-tabs">
       <div class="pull-left">
         <% if user_signed_in? %>
-        Signed in as: <strong><%= current_user.email %></strong>
+        Signed in as: <strong><%= current_user.email %></strong><br />
+        Your role is: <strong><%= current_user.role %></storong>
       </div>
 
 
