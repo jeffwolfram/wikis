@@ -3,5 +3,23 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+20.times do
+    user = User.new
+    user.email = Faker::Internet.email
+    user.role = "standard"
+    user.password = Faker::Internet.password(10, 20, true)
+
+    user.save
+10.times do
+    wiki = Wiki.new
+    wiki.title = Faker::Book.title[0..40]
+    wiki.body = Faker::Lorem.words(4, true)
+    wiki.user = user
+    wiki.private = false
+    wiki.save
+  end
+end
+puts "seed finished"
+puts "#{User.count} users were created."
+puts "#{Wiki.count} wikis were created."
