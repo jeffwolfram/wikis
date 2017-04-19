@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get  'welcome/premium'
   get 'users/sign_out' => 'welcome#index'
   root 'welcome#index'
+  put '/downgrade' => "charges#downgrade" 
+
 end

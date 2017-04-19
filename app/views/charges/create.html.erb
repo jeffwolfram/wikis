@@ -1,4 +1,7 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
-<% u = current_user %>
-<% u.role = "premium" %>
-<% u.save %>
+<h2>Thanks, you paid <strong>$15.00</strong>!</h2>
+
+<% current_user.role = "premium" %>
+<% current_user.save %>
+<h1>Welcome to BLocipedia</h1>
+<h3>Take me to the wikis<h3>
+  <%= button_to "Wikis", wikis_path, method: :get %>

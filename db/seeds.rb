@@ -4,22 +4,23 @@
 # Examples:
 #
 
-20.times do
+10.times do
     user = User.new
     user.email = Faker::Internet.email
     user.role = "standard"
     user.password = Faker::Internet.password(10, 20, true)
-
     user.save
-10.times do
+  end
+30.times do
+    users = User.all
     wiki = Wiki.new
     wiki.title = Faker::Book.title[0..40]
-    wiki.body = Faker::Lorem.words(4, true)
-    wiki.user = user
+    wiki.body = Faker::Lorem.paragraphs
+    wiki.user = users.sample
     wiki.private = false
     wiki.save
   end
-end
+
 puts "seed finished"
 puts "#{User.count} users were created."
 puts "#{Wiki.count} wikis were created."

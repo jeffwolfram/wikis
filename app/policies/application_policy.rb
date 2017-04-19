@@ -31,12 +31,13 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+  current_user.admin?
   end
 
   def scope
     Pundit.policy_scope!(user, record.class)
   end
+
 
   class Scope
     attr_reader :user, :scope
