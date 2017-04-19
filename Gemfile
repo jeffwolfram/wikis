@@ -26,6 +26,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'figaro'
 gem 'pundit'
+gem 'stripe', '~> 2.4'
 
 
 group :development, :test do
