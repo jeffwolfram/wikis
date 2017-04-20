@@ -6,10 +6,14 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def new?
-    user.present?
+    current_user
   end
   def edit
-    current_user?
+    current_user
+  end
+  def update
+    
+
   end
   def destroy
     @current_user.admin

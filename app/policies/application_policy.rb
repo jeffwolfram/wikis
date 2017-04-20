@@ -23,15 +23,15 @@ class ApplicationPolicy
   end
 
   def update?
-    user.present?
+    false
   end
 
   def edit?
-    update?
+   update?
   end
 
   def destroy?
-  current_user.admin?
+    current_user && @user.present? || current_user && current_user.admin?
   end
 
   def scope

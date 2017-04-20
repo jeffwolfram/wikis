@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="jumbotron jtron">
+      <h1 class="text-center">GO PREMIUM!</h1>
+    </div>
+    </div>
+
+  <h2 class="text-center">Collaboration without the learning curve.</h2>
+  <p class="text-center">Just sign up and start creating your wikis. No classed needed!</p>
+  <!-- Credit card processing button and link start -->
+  <div class="text-center">
+     <%= form_tag charges_path do %>
+     <article>
+       <% if flash[:error].present? %>
+       <div id="error_explanation">
+         <p><%= flash[:error] %></p>
+       </div>
+       <% end %>
+       <label class="amount">
+         <span>Amount: $15.00</span>
+       </label>
+     </article>
+
+     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+     data-description="A month's subscription"
+     data-amount="500"
+     data-locale="auto"></script>
+     <% end %>
+   </div>
+     <!-- Credit card processing button and link end -->
+  <hr class="half-rule">
+</div>
+<div class="container">
+  <div class="row">
+<div class="col-md-4">
+  <h3 >Heading</h3>
+  <ul>
+    <li>First reason why</li>
+    <li>Second reason why</li>
+    <li>Third reason why</li>
+    <li>fourth reason why</li>
+  </ul>
+</div>
+<div class="col-md-4">
+  <h3>Heading</h3>
+  <ul>
+    <li>First reason why</li>
+    <li>Second reason why</li>
+    <li>Third reason why</li>
+    <li>fourth reason why</li>
+  </ul>
+</div>
+<div class="col-md-4">
+  <h3>Heading</h3>
+  <ul>
+    <li>First reason why</li>
+    <li>Second reason why</li>
+    <li>Third reason why</li>
+    <li>fourth reason why</li>
+  </ul>
+</div>
+</div>
+</div>
