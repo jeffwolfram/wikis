@@ -220,7 +220,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  figaro
+  figaro (~> 1.1, >= 1.1.1)
   jquery-rails
   listen
   pg

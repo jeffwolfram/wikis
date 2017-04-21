@@ -24,9 +24,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'figaro'
 gem 'pundit'
 gem 'stripe', '~> 2.4'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 
 group :development, :test do
