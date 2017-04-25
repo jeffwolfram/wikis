@@ -2,14 +2,14 @@
   <div class="media-body">
     <h4 class="media-heading">
       <!-- Creat a link to the show view for each Wiki -->
-        <% @wikis.each do |wiki| %>
+
       <%= link_to wiki.title, wiki %>
     </h4>
-  </p>
-    <small>
-      <%= wiki.body %>
-    </small>
-  </p>
-    <% end %>
+    <p>
+      <small>
+        <%= wiki.body %>
+      </small>
+    </p>
+  
   </div>
 </div>
