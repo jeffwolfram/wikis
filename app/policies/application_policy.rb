@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    resolve
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    !record.private? || user.present? && (user.admin? || record.user == user)
   end
 
   def create?
-    false
+    user.present?
   end
 
   def new?
@@ -23,15 +23,15 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.present?
   end
 
   def edit?
-   update?
+    update? #does this mean that it follows same rule as update?
   end
 
   def destroy?
-    current_user && @user.present? || current_user && current_user.admin?
+    user.present? || user && user.admin?
   end
 
   def scope
@@ -39,16 +39,5 @@ class ApplicationPolicy
   end
 
 
-  class Scope
-    attr_reader :user, :scope
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
-  end
 end

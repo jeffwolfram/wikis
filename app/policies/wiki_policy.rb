@@ -1,21 +1,40 @@
 class WikiPolicy < ApplicationPolicy
-  attr_reader :current_user, :model
-  def initialize(current_user, model)
-    @current_user = current_user
-    @wiki = model
-  end
-
   def new?
-    current_user
+    user
   end
+
   def edit
-    current_user
+    user
   end
+
+
   def update
-    
 
   end
-  def destroy
-    @current_user.admin
+
+  def destroy?
+    user && record.user == user || user.admin?
   end
+
+  class Scope
+    attr_reader :user, :scope
+    def initialize(user, scope)
+      @user = user
+      @scope= scope
+    end
+
+    def resolve
+      result = []
+      scope.all.each do |wiki|
+        if user.admin? || user == wiki.user
+          result << wiki
+        else unless wiki.private?
+          result << wiki
+        end
+      end
+    end
+    result
+    end
+  end
+
 end
