@@ -1,24 +1,34 @@
 <div class="container">
   <div class="row">
     <div class="jumbotron jtron">
+      <% if User.standard %>
       <h1 class="text-center">GO PREMIUM!</h1>
+      <% else %>
+      <h1 class="text-center"> Welcome to Wikis!</h1>
+      <% end %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <% if User.standard  %>
+    <div class="col-md-6 text-center">
       <h3>For just $15.00 you can go Premium!</h3>
       <p>With a premium membership, you can make your wikis private!</p>
       <div class="text-center">
         <%= link_to "Go Premium", welcome_premium_path, class: 'btn btn-success' %>
       </div>
     </div>
-
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
       <h3>No thanks, Take me to the wikis!</h3>
       <p>I just want to contribute to the others and create a few of my own.</p>
       <div class="text-center">
         <%= link_to "Wikis", wikis_path, class: 'btn btn-success' %>
       </div>
     </div>
+    <% else %>
+    <div class="text-center">
+      <h2>Take me to the wikis</h2>
+    <%= link_to "Wikis", wikis_path, class: 'btn btn-success' %>
+  </div>
+  <% end %>
   </div>
 </div>
