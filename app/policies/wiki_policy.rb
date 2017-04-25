@@ -31,7 +31,7 @@ class WikiPolicy < ApplicationPolicy
         else unless wiki.private?
           result << wiki
         end
-      end
+        end
     end
     result
     end

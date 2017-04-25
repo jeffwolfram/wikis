@@ -27,7 +27,7 @@ gem 'autoprefixer-rails'
 gem 'pundit'
 gem 'stripe', '~> 2.4'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'
