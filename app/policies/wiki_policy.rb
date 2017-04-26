@@ -12,6 +12,10 @@ class WikiPolicy < ApplicationPolicy
 
   end
 
+  def show?
+    user && user == record.user || user.admin?
+  end
+
   def destroy?
     user && record.user == user || user.admin?
   end
@@ -25,13 +29,23 @@ class WikiPolicy < ApplicationPolicy
 
     def resolve
       result = []
-      scope.all.each do |wiki|
-        if user.admin? || user == wiki.user
-          result << wiki
-        else unless wiki.private?
+    if user.role == 'admin'
+      result = scope.all #if the user is an admin, show whem all the wikis
+    elsif user.role == 'premium'
+      all_wikis = scope.all
+      all_wikis.each do |wiki|
+        if !wiki.private? || wiki.owner == user || wiki.collaborators.include?(user)
           result << wiki
         end
+      end
+    else
+      all_wikis = scope.all
+      result = []
+      all_wikis.each do |wiki|
+        if !wiki.private? || wiki.collaborators.include?(user)
+          result << wiki
         end
+      end
     end
     result
     end
