@@ -6,10 +6,12 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
   end
+
   def new
     @wiki = Wiki.new
     authorize @wiki
   end
+
   def create
     @wiki = Wiki.new(wiki_params)
     @wiki.user = current_user
@@ -22,9 +24,11 @@ class WikisController < ApplicationController
       render :new
     end
   end
+
   def edit
     @wiki = Wiki.find(params[:id])
   end
+
   def update
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
@@ -38,6 +42,7 @@ class WikisController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @wiki = Wiki.find(params[:id])
      authorize @wiki
@@ -49,6 +54,7 @@ class WikisController < ApplicationController
       render :show
     end
   end
+
   private
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
