@@ -26,15 +26,12 @@ class WikisController < ApplicationController
   end
 
   def edit
-    @wiki = Wiki.find(params[:id])
-  end
+@wiki = Wiki.find(params[:id])
+end
 
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki.title = params[:wiki][:title]
-    @wiki.body = params[:wiki][:body]
-
-    if @wiki.save
+    if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
     else

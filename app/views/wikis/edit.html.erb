@@ -25,7 +25,19 @@
         <%= f.check_box :private %> Private
         <% end %>
         </div>
-        <%= f.submit "Save", class: 'btn btn-success' %>
+        <%= f.submit "Update", class: 'btn btn-success' %>
         <% end %>
       </div>
     </div>
+
+    <% if current_user && ((current_user.premium? || current_user.admin?) && current_user == @wiki.user) %>
+      <%= form_tag [@wiki, Collaborator.new] do |f| %>
+        <%= email_field_tag :email %>
+        <%= submit_tag 'Save' %>
+      <% end %>
+    <% end %>
+
+    <% @wiki.collaborators.each do |collaborator| %>
+      <%= collaborator.user.email %>
+      <%= link_to "Remove", wiki_collaborator_path(collaborator), method: :delete, class: "btn btn-success" %>
+    <% end %>

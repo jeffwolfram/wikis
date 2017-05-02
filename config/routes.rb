@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   put '/downgrade' => "charges#downgrade"
   get 'users/all' => "users#index"
   put 'admin/:id' => 'users#make_admin', :as => "make_admin"
+  put 'premium/:id' => 'users#make_premium', :as => "make_premium"
+  put 'standard/:id' => 'users#make_standard', :as => "make_standard"
 
 end

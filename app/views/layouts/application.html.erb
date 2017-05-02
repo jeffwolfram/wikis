@@ -37,8 +37,9 @@
       <% end %>
     </ul>
   </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <p class="notice"><%= flash[:notice] %></p>
+  <p class="alert"><%= flash[:error] %></p>
+  <p class="warning"><%= flash[:warning] %></p>
   <%= yield %>
 </body>
 </html>

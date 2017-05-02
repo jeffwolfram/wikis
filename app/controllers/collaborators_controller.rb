@@ -1,33 +1,32 @@
 class CollaboratorsController < ApplicationController
   before_action :make_wiki
 
-  def new
-  end
 
   def create
-    @collaborator = @wiki.collaborators.new(user_email => params[:user_email])
+    @user = User.where(email: params[:email]).first
 
-    if @collaborator.save
-      flash[:notice] = "User was added to Wiki."
+    if @user.nil?
+      flash[:error] = "No user with email #{params[:email]}"
+    elsif @wiki.users.include?(@user)
+      flash[:error] = "User already a collaborator"
+    elsif @wiki.user == @user
+      flash[:error] = "this email belongs to the owner of the wiki"
+    elsif Collaborator.create(wiki: @wiki, user: @user)
+      flash[:notice] = "#{params[:email]} added as a collaborator"
     else
-      flash[:alert] = "An error occured adding a user. Please try again."
+      flash[:error] = "Something went wrong"
     end
-  end
 
-  def update
-  end
-
-  def edit
+    redirect_to edit_wiki_path(@wiki)
   end
 
   def destroy
-  end
-
-  def index
-    @users = User.all
-  end
-
-  def show
+    collaborator = Collaborator.find(params[:id])
+    if collaborator.delete
+      redirecto_to @wiki, notice: "#{collaborator.user.email } was removed as a collaboraotr"
+    else
+      flash[:error] = "Something went wrong"
+    end
   end
 
   private

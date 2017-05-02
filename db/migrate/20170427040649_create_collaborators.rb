@@ -7,6 +7,7 @@ class CreateCollaborators < ActiveRecord::Migration[5.0]
     end
 
     add_index :collaborators, :wiki_id
-    add_index :collaborators, :user_id 
+    add_index :collaborators, :user_id
+    # add_index("collaborators", ["user_id", "page_id"]) 
   end
 end

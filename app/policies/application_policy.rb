@@ -24,11 +24,11 @@ class ApplicationPolicy
   end
 
   def update?
-    user.present?
+    # user.present?
   end
 
   def edit?
-    update? #does this mean that it follows same rule as update?
+    # update? #does this mean that it follows same rule as update?
   end
 
   def destroy?

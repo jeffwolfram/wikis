@@ -3,9 +3,14 @@
  </div>
  <div class="container">
      <table class="table table-striped">
+       <tr>
+         <th>User</th>
+         <th>User level</th>
+         <th></th>
+       </tr>
         <% @users.each do |user| %>
              <tr>
-                 <td><h5><%= user.email %></h5></td>
+                 <td><h5><%= user.email %> -  Role: <%= user.role %></h5></td>
                  <% if @wiki.users.include?(user) %>
                      <td>
                          <% collaborator = @wiki.collaborator_for(user) %>
