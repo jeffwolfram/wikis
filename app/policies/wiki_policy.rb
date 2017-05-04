@@ -34,7 +34,7 @@ class WikiPolicy < ApplicationPolicy
     elsif user.role == 'premium'
       all_wikis = scope.all
       all_wikis.each do |wiki|
-        if !wiki.private? || wiki.owner == user || wiki.collaborators.include?(user)
+        if !wiki.private? || wiki.user == user || wiki.collaborators.include?(user)
           result << wiki
         end
       end

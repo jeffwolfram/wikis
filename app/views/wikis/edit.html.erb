@@ -1,5 +1,5 @@
 <h1>Edit Wiki</h1>
-<div class="row">
+<div class="row extra-bottom-padding">
   <div class="col-md-4">
     <p>Guidelines for adding wikis:</P>
       <ul>
@@ -29,15 +29,34 @@
         <% end %>
       </div>
     </div>
+<div class="divider">
+</div>
 
-    <% if current_user && ((current_user.premium? || current_user.admin?) && current_user == @wiki.user) %>
-      <%= form_tag [@wiki, Collaborator.new] do |f| %>
-        <%= email_field_tag :email %>
-        <%= submit_tag 'Save' %>
-      <% end %>
-    <% end %>
+    <div class="container">
+      <div class="row ">
 
+
+        <div class="col-md-5">
+          <h3>Add collaborators</h3>
+          <% if current_user && ((current_user.premium? || current_user.admin?) && current_user == @wiki.user) %>
+            <%= form_tag [@wiki, Collaborator.new] do |f| %>
+              <%= email_field_tag :email %>
+              <%= submit_tag 'Save' %>
+            <% end %>
+          <% end %>
+          <br />
+<table class="table table-striped">
+  <tr>
+    <th>Collaborator</th>
+    <th></th>
+  </tr>
     <% @wiki.collaborators.each do |collaborator| %>
-      <%= collaborator.user.email %>
-      <%= link_to "Remove", wiki_collaborator_path(collaborator), method: :delete, class: "btn btn-success" %>
+      <td><p><%= collaborator.user.email %></p></td>
+      <td><p><%= link_to "Remove", wiki_collaborator_path(@wiki, collaborator), method: :delete, class: "btn btn-success" %></p></td>
+    </tr>
     <% end %>
+
+  </table>
+</div>
+</div>
+</div>

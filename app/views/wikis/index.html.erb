@@ -1,5 +1,8 @@
 <div class="index-container">
 <h1>Wikis</h1>
+<% if current_user.admin? || current_user.premium? %>
+<%= link_to "New Wiki", new_wiki_path, class: "btn btn-success" %>
+<% end %>
 <br />
 <div class="row">
   <div class="col-md-8">

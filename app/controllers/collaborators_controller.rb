@@ -23,7 +23,7 @@ class CollaboratorsController < ApplicationController
   def destroy
     collaborator = Collaborator.find(params[:id])
     if collaborator.delete
-      redirecto_to @wiki, notice: "#{collaborator.user.email } was removed as a collaboraotr"
+      redirect_to @wiki, notice: "#{collaborator.user.email } was removed as a collaborator"
     else
       flash[:error] = "Something went wrong"
     end

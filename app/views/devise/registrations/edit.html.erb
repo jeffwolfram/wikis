@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -40,3 +43,9 @@
 
 <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 <%= button_to "downgrade", downgrade_path, method: :put %>
+</div>
+<div class="col-md-6">
+  <%= render @wikis %>
+</div>
+</div>
+</div>
