@@ -3,6 +3,7 @@ class CollaboratorsController < ApplicationController
 
 
   def create
+    if current_user.admin? || current_user && ((current_user.premium? || current_user.admin?) && current_user == @wiki.user)
     @user = User.where(email: params[:email]).first
 
     if @user.nil?
@@ -16,16 +17,18 @@ class CollaboratorsController < ApplicationController
     else
       flash[:error] = "Something went wrong"
     end
-
+  end
     redirect_to edit_wiki_path(@wiki)
   end
 
   def destroy
+    if current_user.admin? || current_user && ((current_user.premium? || current_user.admin?) && current_user == @wiki.user)
     collaborator = Collaborator.find(params[:id])
     if collaborator.delete
-      redirect_to @wiki, notice: "#{collaborator.user.email } was removed as a collaborator"
+      redirect_to edit_wiki_path(@wiki), notice: "#{collaborator.user.email } was removed as a collaborator"
     else
       flash[:error] = "Something went wrong"
+    end
     end
   end
 

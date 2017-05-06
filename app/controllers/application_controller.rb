@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   protect_from_forgery with: :exception
-  def after_sign_in_path_for(user)
+
+  def after_sign_up_path_for(resource)
     welcome_standard_path
   end
-  def after_sign_up_path_for(resource)
-    root_path
+  def after_sign_in_path_for(user)
+    welcome_standard_path
   end
 
   private

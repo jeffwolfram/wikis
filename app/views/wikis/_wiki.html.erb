@@ -3,6 +3,9 @@
     <h4 class="media-heading">
       <!-- Creat a link to the show view for each Wiki -->
       <%= link_to wiki.title, wiki %>
+      <small>
+       by <%= wiki.user.email %>
+     </small>
     </h4>
     <p>
       <small>

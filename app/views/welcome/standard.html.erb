@@ -1,15 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="jumbotron jtron">
-      <% if User.standard %>
-      <h1 class="text-center">GO PREMIUM!</h1>
-      <% else %>
-      <h1 class="text-center"> Welcome to Wikis!</h1>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <% if User.standard  %>
+<br>
+<h1 class="text-center">Blocipedia: Social, Markdown Wikis</h1>
+<div class="jumbotron">
+  <div class="container">
+  <div class="text-center">
+
+    <% if current_user.standard?  %>
     <div class="col-md-6 text-center">
       <h3>For just $15.00 you can go Premium!</h3>
       <p>With a premium membership, you can make your wikis private!</p>
@@ -24,11 +19,37 @@
         <%= link_to "Wikis", wikis_path, class: 'btn btn-success' %>
       </div>
     </div>
-    <% else %>
+    <% elsif current_user.premium? %>
     <div class="text-center">
       <h2>Take me to the wikis</h2>
     <%= link_to "Wikis", wikis_path, class: 'btn btn-success' %>
+    </div>
+    <% else %>
+    <p>Welcome back!</p>
+    <p>Ready to get some work done?</p>
+    <% end %>
   </div>
-  <% end %>
+
+  <div class="text-center">
+
   </div>
+
+  </div>
+</div>
+</div>
+<div class="row">
+
+  <div class="col-md-4 text-center">
+  <%= image_tag("how.png",size: "220x180", :alt => "picture") %>
+  </div>
+  <div class="col-md-4 text-center">
+  <%= image_tag("woman.jpg",size: "220x180", :alt => "picture") %>
+  </div>
+
+
+
+  <div class="col-md-4 text-center">
+  <%= image_tag("how.png",size: "220x180", :alt => "picture") %>
+  </div>
+
 </div>

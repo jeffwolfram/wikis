@@ -1,7 +1,7 @@
 <div class="container"
 <h3><%= @wiki.title %></h3>
 <small>
-  submitted <%= time_ago_in_words(@wiki.created_at) %> ago
+  submitted <%= time_ago_in_words(@wiki.created_at)  %> ago by <%= @wiki.user.email %>
 </small>
 <div class="row">
   <div class="col-md-8">
@@ -15,23 +15,3 @@
 
 </div>
 </div>
-<% if @wiki.private? %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-<table class="table table-striped">
-<tr>
-<th>Collaborator</th>
-<th></th>
-</tr>
-<% @wiki.collaborators.each do |collaborator| %>
-  <td><p><%= collaborator.user.email %></p></td>
-  <td><p><%= link_to "Remove", wiki_collaborator_path(collaborator), method: :delete, class: "btn btn-success" %></p></td>
-</tr>
-<% end %>
-
-</table>
-</div>
-</div>
-</div>
-<% end %>

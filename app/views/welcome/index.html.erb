@@ -1,9 +1,12 @@
 <br>
 <h1 class="text-center">Blocipedia: Social, Markdown Wikis</h1>
 <div class="jumbotron">
+  <div class="container">
   <div class="text-center">
+    <% unless user_signed_in? %>
     <p>Sign up for a free account!</p>
 <%= link_to "Sign-up", new_user_registration_path, class: 'btn btn-success' %>
+    <% end %>
 
   </div>
 
@@ -17,6 +20,7 @@
 
     <% end %>
   </div>
+</div>
 </div>
 <div class="row">
 

@@ -25,7 +25,10 @@ class ChargesController < ApplicationController
   def downgrade
     current_user.role = 'standard'
     current_user.save
-    current_user.wikis.where(private: true).update_all(private: false)
+    puts "Look for me in console\n"*10
+    puts params.inspect
+    user = User.find params[:id]
+    user.wikis.where(private: true).update_all(private: false)
     redirect_to root_path
   end
 end

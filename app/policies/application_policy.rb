@@ -12,7 +12,7 @@ class ApplicationPolicy
   end
 
   def show?
-    !record.private? || user.present? && (user.admin? || record.user == user)
+    record.private == false || user.present? && (user.admin? || record.user == user)
   end
 
   def create?
