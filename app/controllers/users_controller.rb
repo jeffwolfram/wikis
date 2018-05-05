@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_check, only: [:index]
+  # before_action :admin_check, only: [:index]
 
   def downgrade
     unless current_user.standard?
